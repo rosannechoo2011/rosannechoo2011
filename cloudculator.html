@@ -1,0 +1,56 @@
+
+<!doctype html>
+<!-- You need to add ng-app to the html tag to get angluar to handle the page. -->
+<html ng-app="myApp">
+  <header>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.js"></script>
+    
+    <script language="javascript" type="text/javascript">
+      //You need to add myApp to a module and provide access to any needed services.
+      angular.module('myApp',[]);
+
+      
+      function addUserCtrl($scope){
+        $scope.users = []; 
+        $scope.add = function(){
+          
+          var match = Math.floor((array.length)*Math.random());
+          var percent = Math.floor((100)*Math.random());
+          var reply = $scope.newUser + " & " + array[match] + " : " 
+          + percent + "% success!";
+          $scope.users.push(reply);
+          reply = "";
+        };
+      }
+      
+      //array of names
+      var array = ["Wah Chun", "Chun Yang", "Rosanne", "Chloe", "Daniel", "Chris", "Desiree", "Jim", "Cherie", "Moses", "Mary"];
+
+    </script>
+  </header>
+  
+  <body>
+  <body background = "http://www.graphicxtras.com/f27/faded-heart-shapes.png"/>
+    <img src = "http://www.correctivechiropractic.net/wp/wp-content/uploads/2010/02/cupid.png" height='500' width='400' 
+    align ="middle"/>
+    <br/>
+    <font face= "Brush Script MT" size ="40" color = "white">
+    <h3 align = "middle">IS429 Love Cloud-culator</h3>
+    <p>Find your ideal match with the Cloud-culator.
+    </p>
+    </font>
+    <font face= "Cursive" size ="30" >
+    <div align="middle" ng-controller="addUserCtrl">
+      Enter your name: <input type="text" ng-model="newUser">
+      <input type="submit" ng-click="add()" value="Find Match">
+      <br><br>History of Matches:
+      <ol>
+        <li ng-repeat="user in users">
+          {{user}}
+        </li>
+      </ol>
+    </div>
+    </font>
+  </body>
+</html>
